@@ -61,7 +61,7 @@ pipeline {
 		sh '''
 			oc project ${DEV_PROJECT}
 			oc new-app --name books nodejs:10~${APP_GIT_URL} \
-			--context-dir ${APP_NAME}
+			--context-dir ${APP_NAME} --as-deployment-config
 
 			oc expose svc/${APP_NAME}
 		   '''
